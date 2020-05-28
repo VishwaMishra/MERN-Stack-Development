@@ -9,7 +9,7 @@ module.exports = (req, res, next) => {
   if (!authorization) {
     res.status(401).json({ error: "you must be logged in" });
   }
-  const token = authorization.replace("Bearer", "");
+  const token = authorization.replace("Bearer ", "");
 
   jwt.verify(token, JWT_SECRET, (err, payload) => {
     if (err) {
@@ -18,7 +18,7 @@ module.exports = (req, res, next) => {
     const { _id } = payload;
     User.findById(_id).then((userdata) => {
       req.User = userdata;
+      next();
     });
-    next();
   });
 };

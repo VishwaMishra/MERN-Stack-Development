@@ -1,4 +1,6 @@
 import React from "react";
+//import Profile from './profile';
+import { Link } from "react-router-dom";
 const Login = () => {
   return (
     <div className="Login-Section">
@@ -14,6 +16,9 @@ const Login = () => {
           Login
           {/* <i class="material-icons right">send</i> */}
         </button>
+        <p>
+          <Link to="/signup">Don't have an account?</Link>
+        </p>
       </div>
     </div>
   );

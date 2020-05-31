@@ -1,5 +1,7 @@
 import React from "react";
 //import Signup from './../../../../client/src/component/Pages/signup';
+import { Link } from "react-router-dom";
+
 const Signup = () => {
   return (
     <div className="Login-Section">
@@ -16,6 +18,9 @@ const Signup = () => {
           Signup
           {/* <i class="material-icons right">send</i> */}
         </button>
+        <p>
+          <Link to="/login">Already have an account ?</Link>
+        </p>
       </div>
     </div>
   );

@@ -7,6 +7,7 @@ import Home from "./component/Pages/home";
 import Login from "./component/Pages/login";
 import Signup from "./component/Pages/signup";
 import Profile from "./component/Pages/profile";
+import CreatePost from "./component/Pages/createPost";
 
 class App extends Component {
   render() {
@@ -24,6 +25,9 @@ class App extends Component {
         </Route>
         <Route path="/profile">
           <Profile />
+        </Route>
+        <Route path="/create">
+          <CreatePost/>
         </Route>
       </BrowserRouter>
     );

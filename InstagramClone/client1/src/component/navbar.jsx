@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
+//import CreatePost from './Pages/createPost';
 class NavBar extends Component {
   render() {
     return (
@@ -18,6 +19,9 @@ class NavBar extends Component {
             </li>
             <li>
               <Link to="/profile">Profile</Link>
+            </li>
+            <li>
+              <Link to="/create">Create Post</Link>
             </li>
           </ul>
         </div>

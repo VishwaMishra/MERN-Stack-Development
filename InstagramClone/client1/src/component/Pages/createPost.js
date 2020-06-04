@@ -14,7 +14,7 @@ const CreatePost = () => {
       <input type="text" placeholder="title" />
       <input type="text" placeholder="body" />
 
-      <div class="file-field input-field">
+      <div className="file-field input-field">
         <div className="btn">
           <span>File</span>
           <input type="file" />

@@ -50,7 +50,7 @@ button {
 
 /* toast */
 #toast-container {
-  top: 30px;
+  top: 30px !important;
   right: 20px !important;
   left: auto !important;
   border-radius: 5px;

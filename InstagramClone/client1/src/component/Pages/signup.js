@@ -8,9 +8,10 @@ const Signup = () => {
   const [name, setName] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
+
   const PostData = () => {
     if (
-      /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/.test(
+      /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
         email
       )
     ) {
@@ -34,8 +35,8 @@ const Signup = () => {
           M.toast({ html: data.error, classes: "#c62828 red darken-3" });
         } else {
           M.toast({ html: data.message, classes: "#43a047 green darken-1" });
+          history.push("/login");
         }
-        history.push("/login");
       })
       .catch((err) => {
         console.log(err);

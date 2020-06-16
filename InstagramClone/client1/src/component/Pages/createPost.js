@@ -1,6 +1,9 @@
-import { React, useState } from "react";
+import { React, useState, Fragment } from "react";
+import M from "materialize-css";
+import { useHistory } from "react-router-dom";
 
 const CreatePost = () => {
+  const history = useHistory();
   const [title, setTitle] = useState("");
   const [body, setBody] = useState("");
   const [image, setImage] = useState("");
@@ -25,15 +28,26 @@ const CreatePost = () => {
       method: "post",
       headers: {
         "Content-Type": "application/json",
+        Authorization: "Bearer" + localStorage.getItem('jwt'),
       },
       body: JSON.stringify({
         title,
         body,
-        image
+        image,
       }),
-    }).then(res=>res.json()).then(data=>{
-      
     })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.error) {
+          M.toast({ html: data.error, classes: "#c62828 red darken-3" });
+        } else {
+          M.toast({ html: "Post created", classes: "#43a047 green darken-1" });
+          history.push("/");
+        }
+      })
+      .catch((err) => {
+        console.log(err);
+      });
   };
   return (
     <div
